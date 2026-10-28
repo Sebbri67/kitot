@@ -1,0 +1,13 @@
+[Unit]
+Description=Kitot : icône de la boîte à miniatures
+After=graphical-session.target plasma-workspace.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 @APPDIR@/tray.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=graphical-session.target

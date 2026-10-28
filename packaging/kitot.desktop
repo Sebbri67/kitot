@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Kitot
+Comment=Rappels de rendez-vous CalDAV
+Icon=office-calendar
+Exec=/usr/bin/python3 @APPDIR@/tray.py
+NoDisplay=true
+X-KDE-StartupNotify=false

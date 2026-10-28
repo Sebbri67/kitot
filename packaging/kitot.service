@@ -1,0 +1,14 @@
+[Unit]
+Description=Kitot : rappels de rendez-vous CalDAV
+After=graphical-session.target network-online.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=@APPDIR@
+ExecStart=@APPDIR@/.venv/bin/python @APPDIR@/rappels.py daemon
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=graphical-session.target
