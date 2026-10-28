@@ -20,8 +20,9 @@ if ((${#missing[@]})); then
 fi
 
 echo "== Environnement Python"
-[ -x "$APPDIR/.venv/bin/python" ] || python3 -m venv "$APPDIR/.venv"
-"$APPDIR/.venv/bin/pip" install -q -r "$APPDIR/requirements.txt"
+# « python -m pip » plutôt que bin/pip : reste valable si le dossier a été déplacé
+"$APPDIR/.venv/bin/python" -c "" 2>/dev/null || python3 -m venv --clear "$APPDIR/.venv"
+"$APPDIR/.venv/bin/python" -m pip install -q -r "$APPDIR/requirements.txt"
 
 echo "== Services et entrée de bureau"
 mkdir -p "$UNITS" "$APPS"
